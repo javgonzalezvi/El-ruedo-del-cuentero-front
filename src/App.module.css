@@ -1,0 +1,12 @@
+.root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: grid;
+    /* 3 columnas: lista fija | calendario flexible | detalle fijo */
+    grid-template-columns: 300px 1fr 320px;
+    flex: 1;
+}

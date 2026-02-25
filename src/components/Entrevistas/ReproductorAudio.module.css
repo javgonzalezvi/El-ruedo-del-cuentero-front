@@ -1,0 +1,150 @@
+.reproductor {
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-mid) 100%);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px 16px;
+}
+
+/* ── Barra de progreso ── */
+.barraWrap {
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 4px;
+}
+
+.barra {
+  position: relative;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.barraRelleno {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: width 0.3s linear;
+}
+
+.barraCursor {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-accent);
+  transition: left 0.3s linear;
+}
+
+/* ── Tiempos ── */
+.tiempos {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 16px;
+}
+
+/* ── Controles ── */
+.controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btnControl {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.btnControl:hover {
+  color: #fff;
+  transform: scale(1.12);
+}
+
+/* Botón de play/pausa */
+.btnPlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(200, 87, 42, 0.55);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btnPlay:hover {
+  background: var(--color-accent-dark);
+  transform: scale(1.06);
+  box-shadow: 0 6px 24px rgba(200, 87, 42, 0.65);
+}
+
+.btnPlay:active {
+  transform: scale(0.96);
+}
+
+/* ── Control de volumen ── */
+.volumenWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 4px;
+}
+
+.sliderVolumen {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 76px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.sliderVolumen::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(200, 87, 42, 0.5);
+}
+
+.sliderVolumen::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 2px rgba(200, 87, 42, 0.5);
+}
+
+/* ── Nota informativa ── */
+.nota {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin-top: 16px;
+  font-style: italic;
+  line-height: 1.5;
+}

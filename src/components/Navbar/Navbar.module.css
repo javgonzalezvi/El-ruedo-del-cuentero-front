@@ -1,0 +1,181 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: var(--nav-height);
+    padding: 0 28px;
+    background: var(--color-dark);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Logo ── */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logoIcono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(200, 87, 42, 0.15);
+    border: 1px solid rgba(200, 87, 42, 0.35);
+    transition: background var(--transition);
+}
+
+.logoIcono:hover {
+    background: rgba(200, 87, 42, 0.25);
+}
+
+.logoNombre {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-cream);
+    white-space: nowrap;
+}
+
+.logoSub {
+    display: block;
+    font-size: 10px;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 1px;
+}
+
+/* ── Links ── */
+.navLinks {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+}
+
+.navLink {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-cream);
+    letter-spacing: 0.02em;
+    transition: color var(--transition);
+    position: relative;
+    padding-bottom: 2px;
+}
+
+/* Subrayado animado al hover */
+.navLink::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transition: width var(--transition);
+}
+
+.navLink:hover {
+    color: var(--color-gold);
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+/* ── Perfil ── */
+.perfilWrapper {
+    position: relative;
+    margin-left: auto;
+}
+
+.perfilBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(245, 230, 200, 0.15);
+    background: rgba(245, 230, 200, 0.05);
+    color: var(--color-cream);
+    transition: background var(--transition), border-color var(--transition);
+}
+
+.perfilBtn:hover {
+    background: rgba(245, 230, 200, 0.1);
+    border-color: rgba(245, 230, 200, 0.25);
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(200, 87, 42, 0.3);
+    border: 2px solid rgba(200, 87, 42, 0.5);
+    flex-shrink: 0;
+}
+
+.perfilInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.perfilNombre {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-cream);
+}
+
+.perfilRol {
+    font-size: 10px;
+    color: var(--color-ink-pale);
+}
+
+.chevron {
+    transition: transform var(--transition);
+    flex-shrink: 0;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+/* ── Dropdown ── */
+.dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 190px;
+    background: var(--color-dark-mid);
+    border: 1px solid rgba(200, 87, 42, 0.2);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: fadeSlideIn 0.15s ease;
+}
+
+.dropdownItem {
+    display: block;
+    padding: 12px 18px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-cream);
+    transition: background var(--transition), color var(--transition);
+}
+
+.dropdownItem:hover {
+    background: rgba(200, 87, 42, 0.15);
+    color: var(--color-gold);
+}

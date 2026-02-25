@@ -1,0 +1,78 @@
+.footer {
+    background: var(--color-dark);
+    height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(200, 87, 42, 0.15);
+}
+
+.inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* ── Logo ── */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logoIcono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(200, 87, 42, 0.15);
+    border: 1px solid rgba(200, 87, 42, 0.3);
+}
+
+.logoNombre {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-cream);
+}
+
+.logoSub {
+    display: block;
+    font-size: 10px;
+    color: var(--color-ink-muted);
+    letter-spacing: 0.06em;
+}
+
+/* ── Copyright ── */
+.copyright {
+    font-size: 12px;
+    color: var(--color-ink-muted);
+    text-align: center;
+}
+
+/* ── Redes sociales ── */
+.redes {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.redLink {
+    color: var(--color-ink-muted);
+    transition: color var(--transition), transform var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.redLink:hover {
+    color: var(--color-gold);
+    transform: translateY(-2px);
+}

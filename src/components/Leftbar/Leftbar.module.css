@@ -1,0 +1,75 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+    border-right: 1px solid var(--color-border);
+    height: calc(100vh - var(--nav-height) - var(--footer-height));
+    overflow: hidden;
+}
+
+.titulo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-ink);
+    padding: 20px 20px 4px;
+}
+
+/* ── Buscador ── */
+.buscadorWrap {
+    position: relative;
+    padding: 12px 16px 8px;
+    color: var(--color-ink-muted);
+}
+
+.buscadorIcono {
+    position: absolute;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-ink-muted);
+    pointer-events: none;
+}
+
+.buscador {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-ink-mid);
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    /* Elimina el icono nativo de <input type="search"> en webkit */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.buscador:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-bg);
+}
+
+.buscador::placeholder {
+    color: var(--color-ink-muted);
+}
+
+/* ── Lista ── */
+.lista {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sinResultados {
+    text-align: center;
+    color: var(--color-ink-muted);
+    font-size: 13px;
+    margin-top: 24px;
+    font-style: italic;
+}

@@ -1,0 +1,27 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout: panel izquierdo fijo + visor de artículo ocupa el resto */
+.layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  /* El PanelNoticias tiene width: 320px propio */
+  /* El ArticuloVisor tiene flex: 1 propio */
+}
+
+/* Estado de carga / error / vacío */
+.estado {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 80px 40px;
+  font-size: 15px;
+  color: var(--color-ink-muted);
+  font-style: italic;
+}

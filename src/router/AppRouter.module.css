@@ -1,0 +1,18 @@
+/* Envoltorio raíz de la página Calendario */
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* Layout de 3 columnas:
+   [Panel izq - fijo] [Calendario - flexible] [Panel detalle - fijo] */
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr 320px;
+  flex: 1;
+  /* Cada panel maneja su propio overflow internamente */
+  overflow: hidden;
+  height: calc(100vh - var(--nav-height) - var(--footer-height));
+}
