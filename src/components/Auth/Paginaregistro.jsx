@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import styles from "./PaginaRegistro.module.css";
+import styles from "./Paginaregistro.module.css";
 
-export default function PaginaRegistro({ onNavigate }) {
+export default function Paginaregistro({ onNavigate }) {
   const { registro } = useAuth();
 
   const [form, setForm] = useState({

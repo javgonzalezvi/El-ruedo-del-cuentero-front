@@ -13,7 +13,7 @@ import PaginaAcercaDe    from "../components/AcercaDe/PaginaAcercaDe";
 import PaginaMiCuenta    from "../components/Perfil/PaginaMiCuenta";
 import PaginaMisEventos  from "../components/Perfil/PaginaMisEventos";
 import PaginaLogin       from "../components/Auth/PaginaLogin";
-import PaginaRegistro    from "../components/Auth/PaginaRegistro";
+import Paginaregistro    from "../components/Auth/Paginaregistro";
 
 import Navbar         from "../components/Navbar/Navbar";
 import Footer         from "../components/Footer/Footer";
@@ -72,7 +72,7 @@ export default function AppRouter() {
 
   // ── Rutas de auth ──
   if (pagina === "login")    return <PaginaLogin    onNavigate={setPagina} />;
-  if (pagina === "registro") return <PaginaRegistro onNavigate={setPagina} />;
+  if (pagina === "registro") return <Paginaregistro onNavigate={setPagina} />;
 
   // ── Rutas privadas ──
   if (!estaLogueado && (pagina === "mi-cuenta" || pagina === "mis-eventos")) {
