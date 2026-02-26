@@ -6,7 +6,7 @@
 
 import { useState } from "react";
 import { apiFetch } from "../../services/api";
-import styles from "./FormCuentero.module.css";
+import styles from "./Formcuentero.module.css";
 
 const CATEGORIAS = ["MAESTROS", "VOCES NUEVAS", "INTERNACIONAL", "EXPERIMENTALES"];
 
