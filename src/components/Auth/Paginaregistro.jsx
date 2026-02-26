@@ -1,7 +1,3 @@
-/**
- * components/Auth/PaginaRegistro.jsx
- */
-
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import styles from "./PaginaRegistro.module.css";
