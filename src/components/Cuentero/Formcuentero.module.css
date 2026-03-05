@@ -1,3 +1,8 @@
+/* ══════════════════════════════════════
+   FormCuentero.module.css
+   Estilos compartidos por FormEvento, FormNoticia, FormEntrevista
+   ══════════════════════════════════════ */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -290,4 +295,71 @@
 .btnSubmit:disabled {
   opacity: 0.65;
   cursor: not-allowed;
+}
+
+/* ── Toggle modo rápido / completo ── */
+.modoToggle {
+  display: flex;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.modoBtn {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  padding: 9px 12px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.modoBtn:hover:not(.modoBtnActivo) {
+  color: var(--color-ink);
+  background: var(--color-bg);
+}
+
+.modoBtnActivo {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(200, 87, 42, 0.3);
+}
+
+/* ── Toggle tipo de media ── */
+.mediaToggle {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mediaBtn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-ink-light);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-dark);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.mediaBtn:hover:not(.mediaBtnActivo) {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.mediaBtnActivo {
+  background: rgba(200, 87, 42, 0.1);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }

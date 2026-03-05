@@ -1,3 +1,7 @@
+/* ══════════════════════════════════════
+   PanelDetalle.module.css
+   ══════════════════════════════════════ */
+
 .panel {
   background: var(--color-bg);
   height: calc(100vh - var(--nav-height) - var(--footer-height));
@@ -33,27 +37,28 @@
 /* ── Imagen ── */
 .imagenWrap {
   position: relative;
-  height: 200px;
+  max-height: 420px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   margin-bottom: 18px;
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .imagen {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.imagenWrap:hover .imagen {
-  transform: scale(1.03);
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  display: block;
 }
 
 .imagenOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(44, 26, 14, 0.75) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(44, 26, 14, 0.5) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -243,4 +248,106 @@
 .btnGuardado:hover:not(:disabled) {
   background: rgba(200, 87, 42, 0.06) !important;
   transform: none !important;
+}
+
+/* ── Fechas adicionales ── */
+.fechasExtra {
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fechasExtraTitulo {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  margin-bottom: 2px;
+}
+
+.fechaExtraItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-ink-light);
+}
+
+.fechaExtraIcono {
+  color: var(--color-accent);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* ── Modal de imagen ── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modalContenido {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.2s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.modalImg {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+.modalCerrar {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: background var(--transition), transform var(--transition);
+  z-index: 1;
+}
+
+.modalCerrar:hover {
+  background: var(--color-accent-dark);
+  transform: scale(1.1);
 }

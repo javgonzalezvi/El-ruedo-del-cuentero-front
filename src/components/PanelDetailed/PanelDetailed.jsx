@@ -44,13 +44,14 @@ function EstadoVacio() {
   );
 }
 
-export default function PanelDetalle({ evento, onNavigate }) {
+export default function PanelDetailed({ evento, onNavigate }) {
   const { estaLogueado } = useAuth();
 
   const [guardado,   setGuardado]   = useState(false);
   const [idRelacion, setIdRelacion] = useState(null);
   const [cargando,   setCargando]   = useState(false);
   const [mensaje,    setMensaje]    = useState("");
+  const [modalImg,   setModalImg]   = useState(false);
 
   // Al cambiar de evento, verificar si ya está guardado
   useEffect(() => {
@@ -135,7 +136,9 @@ export default function PanelDetalle({ evento, onNavigate }) {
       {/* Imagen */}
       <div className={styles.imagenWrap}>
         {evento.imagen
-          ? <img src={evento.imagen} alt={evento.titulo} className={styles.imagen} />
+          ? <img src={evento.imagen} alt={evento.titulo} className={styles.imagen}
+              onClick={() => setModalImg(true)}
+              style={{ cursor: "zoom-in" }} />
           : <div className={styles.imagenFallback}>📅</div>
         }
         <div className={styles.imagenOverlay} />
@@ -152,7 +155,7 @@ export default function PanelDetalle({ evento, onNavigate }) {
       {/* Título */}
       <h2 className={styles.titulo}>{evento.titulo}</h2>
 
-      {/* Fecha */}
+      {/* Fecha principal */}
       <div className={styles.infoItem}>
         <div className={styles.infoIcono}><IconoCalendario /></div>
         <div>
@@ -160,6 +163,24 @@ export default function PanelDetalle({ evento, onNavigate }) {
           <p className={styles.infoSub}>{evento.hora ?? ""}</p>
         </div>
       </div>
+
+      {/* Fechas adicionales */}
+      {evento.fechas_adicionales?.length > 0 && (
+        <div className={styles.fechasExtra}>
+          <p className={styles.fechasExtraTitulo}>Más fechas</p>
+          {evento.fechas_adicionales.map((f, i) => {
+            const fFmt = f.fecha instanceof Date && !isNaN(f.fecha)
+              ? f.fecha.toLocaleDateString("es-CO", { day: "2-digit", month: "short", year: "numeric" })
+              : "—";
+            return (
+              <div key={i} className={styles.fechaExtraItem}>
+                <span className={styles.fechaExtraIcono}>↳</span>
+                <span>{fFmt}{f.nota ? ` — ${f.nota}` : ""}</span>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Lugar */}
       <div className={styles.infoItem}>
@@ -202,6 +223,15 @@ export default function PanelDetalle({ evento, onNavigate }) {
           Compartir evento
         </button>
       </div>
+      {/* Modal de imagen */}
+      {modalImg && evento.imagen && (
+        <div className={styles.modalOverlay} onClick={() => setModalImg(false)}>
+          <div className={styles.modalContenido} onClick={e => e.stopPropagation()}>
+            <button className={styles.modalCerrar} onClick={() => setModalImg(false)}>✕</button>
+            <img src={evento.imagen} alt={evento.titulo} className={styles.modalImg} />
+          </div>
+        </div>
+      )}
     </aside>
   );
 }

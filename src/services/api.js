@@ -184,11 +184,21 @@ export function normalizarEntrevista(e) {
 }
 
 export function normalizarEvento(ev) {
+  const resolverMedia = (url) => {
+    if (!url) return null;
+    if (url.startsWith("http")) return url;
+    const base = (import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api").replace("/api", "");
+    return `${base}${url}`;
+  };
   return {
     ...ev,
     fecha:     new Date(ev.fecha),
-    imagen:    ev.imagen_final || ev.imagen_url || ev.imagen || null,
+    imagen:    resolverMedia(ev.imagen_final) || ev.imagen_url || ev.video_url || null,
     categoria: ev.categoria?.nombre ?? ev.categoria ?? "",
     color:     ev.categoria?.color  ?? "#C8572A",
+    fechas_adicionales: (ev.fechas_adicionales ?? []).map(f => ({
+      ...f,
+      fecha: new Date(f.fecha),
+    })),
   };
 }
