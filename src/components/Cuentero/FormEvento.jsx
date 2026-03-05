@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { eventosAPI, apiFetch } from "../../services/api";
-import styles from "./FormCuentero.module.css";
+import styles from "./Formcuentero.module.css";
 
 const CAMPOS_VACIOS = {
   titulo:        "",
