@@ -184,7 +184,8 @@ export function normalizarEntrevista(e) {
 }
 
 export function normalizarEvento(ev) {
-  const resolverMedia = (url) => {
+  // Resolver URLs relativas agregando el host del backend
+  const resolverURL = (url) => {
     if (!url) return null;
     if (url.startsWith("http")) return url;
     const base = (import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api").replace("/api", "");
@@ -193,9 +194,11 @@ export function normalizarEvento(ev) {
   return {
     ...ev,
     fecha:     new Date(ev.fecha),
-    imagen:    resolverMedia(ev.imagen_final) || ev.imagen_url || ev.video_url || null,
-    categoria: ev.categoria?.nombre ?? ev.categoria ?? "",
-    color:     ev.categoria?.color  ?? "#C8572A",
+    imagen:    resolverURL(ev.imagen_final) || resolverURL(ev.imagen_url) || null,
+    video:     resolverURL(ev.video_final)  || resolverURL(ev.video_url)  || null,
+    categoria:      ev.categoria?.nombre ?? ev.categoria ?? "",
+    color:          ev.categoria?.color  ?? "#C8572A",
+    categoriaColor: ev.categoria?.color  ?? "#C8572A",
     fechas_adicionales: (ev.fechas_adicionales ?? []).map(f => ({
       ...f,
       fecha: new Date(f.fecha),
